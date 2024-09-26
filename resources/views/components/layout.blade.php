@@ -10,9 +10,9 @@
 
 </head>
 
-<body class="bg-black">
+<body>
     <x-navbar></x-navbar>
-    <div class="flex flex-col items-center min-h-screen h-full p-5 mt-20 overflow-hidden">
+    <div class="flex min-h-screen h-full p-5 overflow-hidden">
         {{ $slot }}
     </div>
     <footer class="h-20 bg-gray-400"></footer>
