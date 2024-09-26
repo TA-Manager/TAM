@@ -5,17 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIWAPAT</title>
+    <title>TAM</title>
     @vite('resources/css/app.css')
-
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+    :root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    }
+    @supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+    }
+    </style>
 </head>
 
-<body class="bg-black">
-    <x-navbar></x-navbar>
-    <div class="flex flex-col items-center min-h-screen h-full p-5 mt-20 overflow-hidden">
+<body>
+    <div class=" min-h-screen h-full overflow-hidden">
         {{ $slot }}
     </div>
-    <footer class="h-20 bg-gray-400"></footer>
 </body>
 
 </html>
