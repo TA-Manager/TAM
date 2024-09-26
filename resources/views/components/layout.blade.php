@@ -21,7 +21,8 @@
 </head>
 
 <body>
-    <div class=" min-h-screen h-full overflow-hidden">
+    <x-navbar></x-navbar>
+    <div class="flex min-h-screen h-full p-5 overflow-hidden">
         {{ $slot }}
     </div>
 </body>
