@@ -1,8 +1,7 @@
 <nav class="w-full h-20 bg-white flex justify-between items-center p-5 px-10 md:px-20 text-xl">
     <div class="flex items-center">
-        <a href="/" class="text-2xl font-bold text-blue-500">SIWAPAT</a>
+        <a href="/" class="text-2xl font-bold text-blue-500">TAM</a>
     </div>
-
     <div class="hidden md:flex bg-gray-200 rounded-full h-10 items-center w-32 md:w-80">
         <img src="{{ asset('img/search.svg') }}" class="p-2" alt="search icon">
         <input type="text" class="bg-gray-200 rounded-full text-base focus:outline-none h-10 p-2 w-full" placeholder="ค้นหารายวิชา">

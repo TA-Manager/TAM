@@ -1,4 +1,24 @@
-<x-layout>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TAM</title>
+    @vite('resources/css/app.css')
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <style>
+    :root {
+    font-family: Inter, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    }
+    @supports (font-variation-settings: normal) {
+    :root { font-family: InterVariable, sans-serif; }
+    }
+    </style>
+</head>
+<div class="flex min-h-screen h-full overflow-hidden">
     <div class="w-full h-screen grid grid-cols-1 md:grid-cols-2 overflow-hidden">
         <!-- Left side (Image) -->
         <div class="hidden md:flex items-center justify-center bg-gradient-to-b from-[#0692DF] to-[#1962CB] backdrop-blur p-6">
@@ -39,4 +59,4 @@
             </div>
         </div>
     </div>
-</x-layout>
+</div>
