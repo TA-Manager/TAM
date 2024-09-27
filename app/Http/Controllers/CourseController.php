@@ -22,7 +22,8 @@ class CourseController extends Controller
     {
         $count = session('count', 1);
         $count++;
-        if ($count > 9) {
+        $courseCount = DB::table('courses')->count();
+        if ($count > $courseCount-1) {
             $count = 0;
         }
         session(['count' => $count]);
@@ -32,8 +33,9 @@ class CourseController extends Controller
     {
         $count = session('count', 1);
         $count--;
+        $courseCount = DB::table('courses')->count();
         if ($count < 0) {
-            $count = 9;
+            $count = $courseCount-1;
         }
         session(['count' => $count]);
         return redirect('/home');
