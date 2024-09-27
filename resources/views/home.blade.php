@@ -23,7 +23,7 @@
                 <div class="flex justify-center">
                     <a href="#">
                         <div class="w-80 h-96 text-[#0692DF] bg-gradient-to-b from-[#0692DF]/[0.1] to-[#034F79]/[.1] backdrop-blur-[49.47px] rounded-3xl relative flex flex-col items-center" style="box-shadow: inset 25px -25px 25px rgba(4, 86, 131, 0.1)">
-                            <img src="{{ asset('img/comLanding.svg') }}" alt="" class="w-56 h-64 absolute -top-20">
+                            <img src="{{ asset('img/' . $item->image_path . '.svg') }}" alt="" class="w-56 h-64 absolute -top-20">
                             <div class="flex h-[80%] justify-end flex-col items-center p-3">
                                 <h1 class="text-2xl">{{ $item->id }}</h1>
                                 <p class="text-lg text-center">{{ $item->name }}</p>
@@ -45,7 +45,7 @@
                 <div class="flex justify-center">
                     <a href="#">
                         <div class="w-80 h-96 text-[#0692DF] bg-gradient-to-b from-[#0692DF]/[0.1] to-[#034F79]/[.1] backdrop-blur-[49.47px] rounded-3xl relative flex flex-col items-center" style="box-shadow: inset 25px -25px 25px rgba(4, 86, 131, 0.1)">
-                            <img src="{{ asset('img/comLanding.svg') }}" alt="" class="w-56 h-64 absolute -top-20">
+                            <img src="{{ asset('img/' . $item->image_path . '.svg') }}" alt="" class="w-56 h-64 absolute -top-20">
                             <div class="flex h-[80%] justify-end flex-col items-center p-3">
                                 <h1 class="text-2xl">{{ $item->id }}</h1>
                                 <p class="text-lg text-center">{{ $item->name }}</p>
@@ -68,7 +68,7 @@
                 <div class="flex justify-center">
                     <a href="#">
                         <div class="w-52 h-72 text-[#0692DF] bg-gradient-to-b from-[#0692DF]/[0.1] to-[#034F79]/[.1] backdrop-blur-[49.47px] rounded-3xl flex flex-col items-center" style="box-shadow: inset 25px -25px 25px rgba(4, 86, 131, 0.1)">
-                            <img src="{{ asset('img/comLanding.svg') }}" alt="" class="w-40 h-44">
+                            <img src="{{ asset('img/' . $item->image_path . '.svg') }}" alt="" class="w-40 h-44">
                             <div class="flex justify-center flex-col items-center p-3">
                                 <h1 class="text-lg">{{ $item->id }}</h1>
                                 <p class="text-base text-center">{{ $item->name }}</p>
