@@ -12,7 +12,7 @@ class CourseController extends Controller
 
     public function showHome()
     {
-        $users = DB::table('users')->select('id', 'name', 'email')->orderBy('id', 'asc')->get();
+        $users = DB::table('courses')->select('id', 'name')->orderBy('id', 'asc')->get();
         $count = session('count', 1);
 
         return view('home')->with(['users' => $users, 'count' => $count]);
