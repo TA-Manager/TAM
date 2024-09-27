@@ -1,6 +1,6 @@
 <nav class="w-full h-20 bg-white flex justify-between items-center p-5 px-10 md:px-20 text-xl">
     <div class="flex items-center">
-        <a href="/" class="text-2xl font-bold text-blue-500">TAM</a>
+        <a href="/" class="w-32 font-bold text-blue-500"><img src="{{ asset('img/tamLogo.svg') }}" alt=""></a>
     </div>
     <div class="hidden md:flex bg-gray-200 rounded-full h-10 items-center w-32 md:w-80">
         <img src="{{ asset('img/search.svg') }}" class="p-2" alt="search icon">

@@ -15,14 +15,14 @@
     font-feature-settings: 'liga' 1, 'calt' 1;
     }
     @supports (font-variation-settings: normal) {
-    :root { font-family: InterVariable, sans-serif; }
+        :root { font-family: InterVariable, sans-serif; }
     }
     </style>
 </head>
 
 <body>
     <x-navbar></x-navbar>
-    <div class="flex min-h-screen h-full p-5 overflow-hidden">
+    <div class="flex flex-col min-h-screen h-full m-5 overflow-hidden relative">
         {{ $slot }}
     </div>
 </body>

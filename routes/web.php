@@ -9,5 +9,6 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    $users = DB::table('users')->select('id','name','email')->orderBy('id', 'asc')->get();
+    return view('home')->with('users', $users);
 });
