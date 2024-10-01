@@ -12,3 +12,7 @@ Route::get('/', function () {
 Route::get('/home', [CourseController::class, 'showHome']);
 Route::post('/add-count', [CourseController::class, 'AddCount'])->name('add-count');
 Route::post('/minus-count', [CourseController::class, 'MinusCount'])->name('minus-count');
+
+Route::get('/@me', function () {
+    return view('@me');
+});
