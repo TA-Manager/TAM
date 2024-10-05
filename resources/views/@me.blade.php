@@ -11,6 +11,7 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center">
+                    <img src="{{ Auth::user()->avatar }}" alt="Google Avatar" class="w-72 h-72 mt-10 rounded-full border-white border"/>
                     <img src="" alt="" class="w-72 h-72 mt-10 rounded-full border-white border bg-black">
                     <h1 class="mt-5 text-2xl font-bold">
                         {{ $item->first_name }} {{ $item->last_name }}
