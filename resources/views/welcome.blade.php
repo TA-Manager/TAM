@@ -53,9 +53,9 @@
             </div>
             <!-- Google Login Button -->
             <div class="flex justify-center">
-                <button class="w-2/5 flex items-center justify-center bg-white text-[#0692DF] text-xl p-3 hover:bg-slate-100 rounded-[51px] transition">
-                    เข้าสู่ระบบด้วย Google
-                </button>
+                <a href="{{ url('login/google') }}" class="flex items-center justify-center bg-white text-[#0692DF] text-xl p-3 hover:bg-slate-100 rounded-[51px] transition">
+                        เข้าสู่ระบบด้วย Google
+                </a>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@
     <div class="hidden md:flex text-[#0692DF] gap-6 items-center">
         <a href="/home">หน้าหลัก</a>
         <a href="/">ประกาศ</a>
-        <a href=""><img src="profile" alt="" class="w-10 h-10 bg-black rounded-full"></a>
+        <a href="/@me"><img src="profile" alt="" class="w-10 h-10 bg-black rounded-full"></a>
     </div>
 
     <div id="mobileMenuDropdown" class="hidden flex-col absolute top-20 left-0 w-full bg-white text-center space-y-4 py-4 shadow-lg md:hidden">
