@@ -16,6 +16,8 @@ Route::get('/', function () {
 Route::get('/home', [CourseController::class, 'showHome'])->middleware('auth');
 Route::post('/add-count', [CourseController::class, 'AddCount'])->name('add-count');
 Route::post('/minus-count', [CourseController::class, 'MinusCount'])->name('minus-count');
+Route::post('/confirm-form', [CourseController::class, 'confirmForm'])->name('confirm-form');
+
 Route::get('/@me', [MemberController::class, 'showProfile']);
 Route::get('login/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
