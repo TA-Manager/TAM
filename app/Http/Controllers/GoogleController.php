@@ -39,7 +39,7 @@ class GoogleController extends Controller
                     'email' => $googleUser->getEmail(),
                     'phone_number' => null, // Handle this based on your application
                     'username' => strtolower($googleUser->getName()), // Simple username generation
-                    'student_id' => null, // You can handle this as needed
+                    'student_id' => substr($googleUser->getEmail(), 0, 8), // You can handle this as needed
                     'contact' => null, // You can handle this as needed
                     'avatar' => $googleUser->getAvatar(), // Store the avatar URL
                 ]);
