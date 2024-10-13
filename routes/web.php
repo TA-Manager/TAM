@@ -23,3 +23,6 @@ Route::get('login/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
 Route::get('/applicationform', [ApplicationFromController::class, 'showForm']);
 Route::get('/notification', [NotificationController::class, 'showNotification']);
+
+Route::get('/HongFha', [MemberController::class, 'showHongFha']);
+Route::post('/changeSelect', [MemberController::class, 'changeSelect'])->name('changeSelect');

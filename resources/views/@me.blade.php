@@ -5,7 +5,7 @@
             <img src="{{ asset('img/coffee.svg') }}" alt="" class="absolute -left-32 top-20">
             <div class="absolute -right-16 -top-16">
                 <div class="flex justify-center items-center flex-col bg-[#E9EBF4] rounded-full w-36 h-36 text-[#2B308B]">
-                    <h1 class="text-3xl">13,000</h1>
+                    <h1 class="text-3xl">{{ $member->salary }}</h1>
                     <h2 class="opacity-75">บาท</h2>
                 </div>
             </div>
