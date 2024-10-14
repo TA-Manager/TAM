@@ -70,19 +70,21 @@
                                 <p class="border border-[#0692DF] p-2 font-bold">เช็คชื่อ</p>
                             @endif
                             @foreach ($members as $item)
-                                <p class="border border-[#0692DF] p-2">{{ $item->student_id }}</p>
-                                <p class="border border-[#0692DF] p-2">{{ $item->first_name }} {{ $item->last_name }}</p>
-                                @if (session('isSelect'))
-                                    <p class="border border-[#0692DF] p-2">{{ $item->salary }}</p>
-                                @else
-                                    <div class="relative  border border-[#0692DF] flex justify-center items-center">
-                                        <select name="status[{{ $item->student_id }}]" class="border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 rounded-md">
-                                            <option value="">เช็คชื่อ</option>
-                                            <option value="มา">มา</option>
-                                            <option value="ลา">ลา</option>
-                                            <option value="ขาด">ขาด</option>
-                                        </select>
-                                    </div>
+                                @if ($item->role == 'STUDENT')
+                                    <p class="border border-[#0692DF] p-2">{{ $item->student_id }}</p>
+                                    <p class="border border-[#0692DF] p-2">{{ $item->first_name }} {{ $item->last_name }}</p>
+                                    @if (session('isSelect'))
+                                        <p class="border border-[#0692DF] p-2">{{ $item->salary }}</p>
+                                    @else
+                                        <div class="relative border border-[#0692DF] flex justify-center items-center">
+                                            <select name="status[{{ $item->student_id }}]" class="border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 rounded-md">
+                                                <option value="">เช็คชื่อ</option>
+                                                <option value="มา">มา</option>
+                                                <option value="ลา">ลา</option>
+                                                <option value="ขาด">ขาด</option>
+                                            </select>
+                                        </div>
+                                    @endif
                                 @endif
                             @endforeach
                         </div>
@@ -98,15 +100,33 @@
                 </div>
             </div>
         </form>
-        <!-- success content -->
-        <!-- <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+
+        <!-- Success Modal -->
+        <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
             <div class="bg-white w-64 h-52 rounded-lg p-6 text-center flex flex-col justify-center items-center">
                 <h2 class="text-lg font-semibold text-[#0692DF]">สำเร็จ</h2>
                 <img src="{{ asset('img/success.svg') }}" alt="success" class="w-16 h-16 mt-2">
             </div>
-        </div> -->
+        </div>
     </div>
 </body>
+
+<script>
+    document.getElementById('salaryForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent form submission to show modal first
+
+        // Show success modal
+        document.getElementById('successModal').classList.remove('hidden');
+
+        // Hide the modal after 1 second
+        setTimeout(function () {
+            document.getElementById('successModal').classList.add('hidden');
+            
+            // Optionally, submit the form after the success message is shown
+            document.getElementById('salaryForm').submit();
+        }, 1000); // 1000 ms = 1 second
+    });
+</script>
 
 </html>
 
