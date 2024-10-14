@@ -30,9 +30,9 @@
             <button class="hover:text-[#30B5E2]">
                 รายชื่อวิชา
             </button>
-            <button class="hover:text-[#30B5E2]">
+            <a href="/applicant" class="hover:text-[#30B5E2]">
                 รายชื่อผู้ผ่านการคัดเลือก
-            </button>
+            </a>
         </div>
         <div class="m-5 grid grid-cols-2 w-2/4 gap-4">
             <button class="w-60 h-44 rounded-xl border-[#0692DF] border-2 flex flex-col justify-center items-center text-[#CCCCCC]">

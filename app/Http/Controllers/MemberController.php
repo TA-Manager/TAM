@@ -89,4 +89,35 @@ class MemberController extends Controller
         return view('Profescer')->with(['member' => $member]);
     }
 
+    public function showApplicant()
+    {
+        $user = Auth::user();
+
+        $member = Member::where('email', $user->email)->first();
+
+        if ($member->role !== 'PROFESSOR') {
+            return redirect()->back()->withErrors('No member profile found.');
+        }
+
+        $members = DB::table('members')->select('student_id', 'first_name', 'last_name', 'role')->orderBy('student_id', 'asc')->get();
+        return view('applicant')->with('members', $members);
+    }
+
+    public function submitStudentId(Request $request)
+    {
+        // Validate the request to ensure student_id is provided
+        $request->validate([
+            'student_id' => 'required|exists:members,student_id', // Ensure student_id exists in the members table
+        ]);
+
+        // Retrieve the student_id from the request
+        $studentId = $request->input('student_id');
+
+        // Use the Members model to find the member based on student_id
+        $member = Member::where('student_id', $studentId)->first();
+
+        // Redirect with the member data to the specified route
+        return redirect()->to('/applicant')->with('member', $member);
+    }
+
 }

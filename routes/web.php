@@ -7,7 +7,6 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\NotificationController;
-use App\Http\Controllers\ApplicantController;
 
 Route::get('/', function () {
     $users = DB::table('users')->select('id','name','email')->orderBy('id', 'asc')->get();
@@ -33,4 +32,6 @@ Route::post('/addSalary', [MemberController::class, 'addSalary'])->name('addSala
 
 Route::get('Profescer', [MemberController::class, 'showProfescer']);
 
-Route::get('/applicant', [ApplicantController::class, 'showApplicant']);
+Route::get('applicant', [MemberController::class, 'showApplicant']);
+Route::post('/members-submit', [MemberController::class, 'submitStudentId'])->name('members-submit');
+
