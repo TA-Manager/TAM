@@ -26,3 +26,5 @@ Route::get('/notification', [NotificationController::class, 'showNotification'])
 
 Route::get('/HongFha', [MemberController::class, 'showHongFha']);
 Route::post('/changeSelect', [MemberController::class, 'changeSelect'])->name('changeSelect');
+Route::post('/addSalary', [MemberController::class, 'addSalary'])->name('addSalary');
+

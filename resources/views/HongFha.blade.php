@@ -56,48 +56,55 @@
                 @endif
             </div>
         </div>
-        <div class="flex justify-center">
-            <div class="drop-shadow shadow-2xl w-11/12 min-h-96 mt-12 rounded-xl p-6">
-                <div class="flex justify-center">
-                    <div class="hidden md:flex bg-gray-200 rounded-full h-10 items-center w-32 md:w-80 justify-center">
-                        <img src="{{ asset('img/search.svg') }}" class="p-2" alt="search icon">
-                        <input type="text" class="bg-gray-200 rounded-full text-base focus:outline-none h-10 p-2 w-full" placeholder="ค้นหา">
-                    </div>
-                </div>
-                <div class="mt-6 w-full flex justify-center text-[#2B308B] text-lg">
-                    <div class="text-center border border-[#0692DF] grid grid-cols-3 w-full">
-                        <p class="border border-[#0692DF] p-2 font-bold">รหัสนักศึกษา</p>
-                        <p class="border border-[#0692DF] p-2 font-bold">ชื่อ - นามสกุล</p>
-                        @if (session('isSelect'))
-                            <p class="border border-[#0692DF] p-2 font-bold">ค่าตอบแทน</p>
-                        @else
-                            <p class="border border-[#0692DF] p-2 font-bold">เช็คชื่อ</p>
-                        @endif
-                        @foreach ($members as $item)
-                            <p class="border border-[#0692DF] p-2">{{ $item->student_id }}</p>
-                            <p class="border border-[#0692DF] p-2">{{ $item->first_name }} {{ $item->last_name }}</p>
+        <form action="{{ route('addSalary') }}" method="POST" id="salaryForm">
+            @csrf
+            <div class="flex justify-center">
+                <div class="drop-shadow shadow-2xl w-11/12 min-h-96 mt-12 rounded-xl p-6">
+                    <div class="mt-6 w-full flex justify-center text-[#2B308B] text-lg">
+                        <div class="text-center border border-[#0692DF] grid grid-cols-3 w-full">
+                            <p class="border border-[#0692DF] p-2 font-bold">รหัสนักศึกษา</p>
+                            <p class="border border-[#0692DF] p-2 font-bold">ชื่อ - นามสกุล</p>
                             @if (session('isSelect'))
-                                <p class="border border-[#0692DF] p-2">{{ $item->salary }}</p>
+                                <p class="border border-[#0692DF] p-2 font-bold">ค่าตอบแทน</p>
                             @else
-                                <!-- ยังไม่เสร็จ ทำเป็น burgerMenu -->
-                                <form action="/check" method="POST" class="border border-[#0692DF] p-2">
-                                    @csrf
-                                    <input type="hidden" name="member_id" value="{{ $item->student_id }}">
-                                    <button type="submit">เช็คชื่อ</button>
-                                </form>
+                                <p class="border border-[#0692DF] p-2 font-bold">เช็คชื่อ</p>
                             @endif
-                        @endforeach
+                            @foreach ($members as $item)
+                                <p class="border border-[#0692DF] p-2">{{ $item->student_id }}</p>
+                                <p class="border border-[#0692DF] p-2">{{ $item->first_name }} {{ $item->last_name }}</p>
+                                @if (session('isSelect'))
+                                    <p class="border border-[#0692DF] p-2">{{ $item->salary }}</p>
+                                @else
+                                    <div class="relative  border border-[#0692DF] flex justify-center items-center">
+                                        <select name="status[{{ $item->student_id }}]" class="border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 rounded-md">
+                                            <option value="">เช็คชื่อ</option>
+                                            <option value="มา">มา</option>
+                                            <option value="ลา">ลา</option>
+                                            <option value="ขาด">ขาด</option>
+                                        </select>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="flex justify-center">
-            <div class="flex justify-center items-center mt-10">
-                <button class="px-20 py-4 text-[#66B600] bg-[#86D81E]/[0.4] flex items-center rounded-[30px]" style="box-shadow: inset 15px -15px 15px 0 rgba(5, 111, 169, 0.1), inset -15px 15px 15px 0 rgba(255, 255, 255, 0.1);">
-                    <p class="font-semibold text-3xl">บันทึก</p>
-                </button>
+
+            <div class="flex justify-center">
+                <div class="flex justify-center items-center mt-10">
+                    <button type="submit" class="px-20 py-4 text-[#66B600] bg-[#86D81E]/[0.4] flex items-center rounded-[30px]" style="box-shadow: inset 15px -15px 15px 0 rgba(5, 111, 169, 0.1), inset -15px 15px 15px 0 rgba(255, 255, 255, 0.1);">
+                        <p class="font-semibold text-3xl">บันทึก</p>
+                    </button>
+                </div>
             </div>
-        </div>
+        </form>
+        <!-- success content -->
+        <!-- <div id="successModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+            <div class="bg-white w-64 h-52 rounded-lg p-6 text-center flex flex-col justify-center items-center">
+                <h2 class="text-lg font-semibold text-[#0692DF]">สำเร็จ</h2>
+                <img src="{{ asset('img/success.svg') }}" alt="success" class="w-16 h-16 mt-2">
+            </div>
+        </div> -->
     </div>
 </body>
 

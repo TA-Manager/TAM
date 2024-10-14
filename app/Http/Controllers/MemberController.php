@@ -42,4 +42,27 @@ class MemberController extends Controller
 
         return redirect('/HongFha');
     }
+
+    public function addSalary(Request $request)
+    {
+        // Validate the incoming request data
+        $request->validate([
+            'status' => 'required|array',
+            'status.*' => 'in:มา,ลา,ขาด', // Validate each option
+        ]);
+
+        foreach ($request->status as $studentId => $status) {
+            if ($status === 'มา') {
+                // Find the member and update the salary
+                $member = Member::where('student_id', $studentId)->first();
+                if ($member) {
+                    $member->salary += 800; // Adjust salary increment
+                    $member->save();
+                }
+            }
+        }
+
+        return redirect()->back()->with('success', 'Salary updated successfully.');
+    }
+
 }
