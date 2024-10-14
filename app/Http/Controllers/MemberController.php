@@ -29,8 +29,16 @@ class MemberController extends Controller
 
     public function showHongFha()
     {
+        $user = Auth::user();
+
+        $member = Member::where('email', $user->email)->first();
+
+        if ($member->role !== 'STUDENT_SERVICES_SECTION') {
+            return redirect()->back()->withErrors('No member profile found.');
+        }
+
         $this->isSelect = session('isSelect', false);
-        $members = DB::table('members')->select('student_id', 'first_name', 'last_name', 'salary')->orderBy('student_id', 'asc')->get();
+        $members = DB::table('members')->select('student_id', 'first_name', 'last_name', 'salary', 'role')->orderBy('student_id', 'asc')->get();
         return view('HongFha')->with('isSelect', $this->isSelect)->with('members', $members);
     }
 

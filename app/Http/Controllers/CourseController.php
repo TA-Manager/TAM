@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Member;
 
 class CourseController extends Controller
 {
@@ -14,6 +16,22 @@ class CourseController extends Controller
 
     public function showHome()
     {
+        $user = Auth::user();
+
+        $member = Member::where('email', $user->email)->first();
+
+        if (!$member) {
+            return redirect()->back()->withErrors('No member profile found.');
+        }
+
+        if ($member->role === 'STUDENT_SERVICES_SECTION') {
+            return redirect('/HongFha');
+        }
+
+        if ($member->role === 'PROFESSOR') {
+            return redirect('/Profescer');
+        }
+
         $users = DB::table('courses')->select('id', 'name', 'image_path')->orderBy('id', 'asc')->get();
         $count = session('count', 1);
 
