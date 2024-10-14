@@ -1,6 +1,7 @@
 <x-layout>
     <div class="w-full flex items-center flex-col">
         <h1 class="text-2xl text-[#2B308B]">โปรไฟล์</h1>
+        <a href="/home" class="absolute text-[#0692DF] left-20 text-4xl">&lt;</a>
         <div class="relative w-[30rem] h-[36rem] bg-gradient-to-b from-[#0692DF]/[0.1] to-[#034F79]/[.1] backdrop-blur-[49.47px] rounded-3xl mt-16 text-[#0692DF]" style="box-shadow: inset 25px -25px 25px rgba(4, 86, 131, 0.1)">
             <img src="{{ asset('img/coffee.svg') }}" alt="" class="absolute -left-32 top-20">
             <div class="absolute -right-16 -top-16">
@@ -26,6 +27,11 @@
                     <p class="text-lg">{{ $member->phone_number }}</p>
                 </div>
             </div>
+            <!-- logout -->
+            <form action="{{ route('logout') }}" method="POST" class="mt-5 flex justify-center">
+                @csrf
+                <button type="submit" class="text-[#2B308B] p-2 drop-shadow-lg underline" id="next">ออกจากระบบ</button>
+            </form>
         </div>
     </div>
 </x-layout>

@@ -56,4 +56,10 @@ class GoogleController extends Controller
             return redirect('/')->with('error', 'Something went wrong during login: ' . $e->getMessage());
         }
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/'); // Redirect after logout
+    }
 }
