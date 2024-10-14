@@ -65,4 +65,20 @@ class MemberController extends Controller
         return redirect()->back()->with('success', 'Salary updated successfully.');
     }
 
+    public function showProfescer()
+    {
+        // Get the authenticated user from Google OAuth
+        $user = Auth::user();
+
+        // Assuming the user's email is used for login or association
+        $member = Member::where('email', $user->email)->first();
+
+        if (!$member) {
+            return redirect()->back()->withErrors('No member profile found.');
+        }
+
+        // Pass the member details to the view
+        return view('Profescer')->with(['member' => $member]);
+    }
+
 }
