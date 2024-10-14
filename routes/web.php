@@ -21,6 +21,8 @@ Route::post('/confirm-form', [CourseController::class, 'confirmForm'])->name('co
 Route::get('/@me', [MemberController::class, 'showProfile']);
 Route::get('login/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('google/callback', [GoogleController::class, 'handleGoogleCallback']);
+Route::post('logout', [GoogleController::class, 'logout'])->name('logout');
+
 Route::get('/applicationform', [ApplicationFromController::class, 'showForm']);
 Route::get('/notification', [NotificationController::class, 'showNotification']);
 
