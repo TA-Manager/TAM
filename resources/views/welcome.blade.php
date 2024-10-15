@@ -8,6 +8,7 @@
     @vite('resources/css/app.css')
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('img/tamLogo.svg') }}">
     <style>
     :root {
     font-family: Inter, sans-serif;
